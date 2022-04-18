@@ -1,45 +1,67 @@
 <html>
     <head>
-
-    </head>
         <style type="text/css">
             body{
-                color:red;
-                background-color: black;
+                color:#d6dbcd;
+                background-color: rgb(38, 177, 20);
             }
+
             #section1 {
                 font-size: 60px;
                 text-align: center;
-                background-image: url("imagenes/porter_fondo_blanco.PNG");
-                background-size: 225px 105px;
+                background-image: url("https://cdn.pixabay.com/photo/2016/11/21/13/28/wood-1845389_960_720.jpg");
+                /*background-size: 225px 105px;*/
+                /*background-size: contain;*/
             }
-            .proyect {
-                background-color: yellow;;
+            #proyectos {
+                display: grid;
+                grid-template-columns: auto auto;
             }
-            img {
-                border: 1px solid #ddd;
-                border-radius: 4px;
-                padding: 5px;
-                width: 150px;
+            .proyecto img {
+                width: 100px;
             }
-
-        </style>
+            
+        </style>       
+    </head>    
     <body>
         <section id = "section1">
-            <h1>bienvenido</h1>
+            <h1>bienvenidos</h1>
         </section>
-        <section>
-            <div class="proyect">
-                <img src="imagenes/porter_copa.jpg"/>
-                <p>Texto1</p>
-            </div>
-            <div class="proyecto">
-                <img src="imagenes/ipa_copa.jpg" />
-                <p>Texto2</p>
-            </div>
-            
-        </section>
-        
-        
+        <section id = 'proyectos'>  </section>   
     </body>
+    <script>
+        const datos =[{
+            img: "imagenes/porter_copa.jpg",
+            desc: 'Texto1'
+        },
+        {
+            img: "imagenes/ipa_copa.jpg",
+            desc: 'Texto2'
+        },
+        {
+            img: "imagenes/Scotish_copa.jpg",
+            desc: 'Texto3'
+        }]
+
+        console.log('hello world')
+        let proyectos = document.querySelector('#proyectos');
+        console.log(proyectos)
+        proyectos.style.background = 'red';
+
+        function dinamico (src) {
+            let div = document.createElement("div");
+            let img = document.createElement("img");
+            img.src = src;
+            let p = document.createElement("p"); //parrafo
+            p.innerHTML = desc; // video esta en CSS
+            div.appendChild(img);
+            div.appendChild(p);
+            proyectos.appendChild(div);
+        }
+
+        datos.forEach(({img, desc})  => dinamico(src,desc));
+
+      
+    </script>
+
 </html>
